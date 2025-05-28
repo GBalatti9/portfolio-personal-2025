@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Básico -->
+    <title>Gastón Balatti | Desarrollador Frontend | Portfolio Web</title>
+    <link rel="icon" href="./assets/favicon.ico" type="image/x-icon">
+
+    <meta name="description"
+        content="Portfolio de Gastón Balatti, desarrollador frontend especializado en Svelte, Next.js y diseño de interfaces modernas. Conocé sus proyectos y experiencia.">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://www.gastonbalatti.dev/"> <!-- Reemplazá con tu dominio real -->
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Open Graph (Facebook / LinkedIn) -->
+    <meta property="og:title" content="Gastón Balatti | Desarrollador Frontend">
+    <meta property="og:description" content="Portfolio de proyectos, experiencia y contacto de Gastón Balatti.">
+    <meta property="og:image" content="https://www.gastonbalatti.dev/assets/preview.jpg">
+    <!-- Reemplazá con una imagen de preview -->
+    <meta property="og:url" content="https://www.gastonbalatti.dev/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_AR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Gastón Balatti | Frontend Developer">
+    <meta name="twitter:description"
+        content="Conocé el portfolio de Gastón Balatti: proyectos recientes, experiencia laboral y cómo contactarlo.">
+    <meta name="twitter:image" content="https://www.gastonbalatti.dev/assets/preview.jpg">
+
+    <!-- Autor y keywords -->
+    <meta name="author" content="Gastón Balatti">
+    <meta name="keywords"
+        content="Gastón Balatti, desarrollador frontend, frontend developer, portfolio frontend, Svelte, Next.js, desarrollo web, animaciones web, diseño de interfaces, La Nación, proyectos web">
+
+    <!-- Robots -->
+    <meta name="robots" content="index, follow">
+
+
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            background: linear-gradient(rgb(30, 30, 30), rgb(1, 8, 1));
+            padding: 20px 0px;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        .main-container {
+            width: 90%;
+            margin: auto;
+        }
+
+        header {
+            position: sticky;
+            top: 20px;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            border-radius: 5px;
+            padding: 10px 0px;
+            margin: auto;
+            font-size: 14px;
+            max-width: 400px;
+            background-color: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .navbar li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            font-family: "Inter", sans-serif;
+        }
+
+        .content {
+            margin-top: 80px;
+        }
+
+        .content h1 {
+            color: white;
+            background-color: transparent;
+            font-family: "Inter", sans-serif;
+            font-size: 40px;
+        }
+
+        .title-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .img-container {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .img-container img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+
+        .language-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .description {
+            padding-top: 20px;
+            font-size: 15px;
+        }
+
+        .description p {
+            line-height: 20px;
+        }
+
+        section {
+            margin-top: 50px;
+            font-family: "Inter", sans-serif;
+        }
+
+        h2,
+        p {
+            color: white;
+        }
+
+        .subtitle {
+            padding-top: 10px;
+            font-size: 14px;
+            line-height: 20px;
+        }
+
+        .project-list {
+            padding-top: 20px;
+        }
+
+        .project-list ul {
+            display: flex;
+            flex-direction: column;
+            gap: 70px;
+        }
+
+        .project-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-direction: column;
+        }
+
+        .project-item:nth-child(2),
+        .project-item:nth-child(4) {
+            flex-direction: column-reverse;
+        }
+
+        .project-info {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .title-project {
+            font-size: 30px;
+            font-weight: 400;
+        }
+
+        .badges {
+            margin-top: 5px;
+            display: flex;
+            font-size: 12px;
+            gap: 10px;
+        }
+
+        .badge {
+            background-color: black;
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+        }
+
+        .img-project-container {
+            width: 50%;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .img-project-container img {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .img-project-container:hover img {
+            transform: scale(1.05);
+        }
+
+        .img-project-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .preview {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            width: fit-content;
+            padding: 5px 10px;
+            font-size: 14px;
+            border-radius: 5px;
+            background: linear-gradient(rgb(10, 10, 10), rgb(0, 0, 0));
+            transition: all 0.1s ease-in-out;
+        }
+
+        .preview:hover {
+            color: white;
+            transform: scale(1.01);
+        }
+
+        .project-description {
+            font-size: 15px;
+        }
+
+        .experience-content {
+            margin-top: 25px;
+            margin-left: 20px;
+            border-left: 1px solid white;
+            display: flex;
+            justify-content: space-between;
+            padding: 0px 0px 0px 30px;
+            flex-direction: column;
+        }
+
+        .contact {
+            padding-bottom: 100px;
+        }
+
+        .job-title {
+            width: 100%;
+            line-height: 20px;
+        }
+
+        .job-description {
+            padding-top: 20px;
+            width: 100%;
+        }
+
+        .job-title {
+            font-weight: 800;
+            font-size: 20px;
+        }
+
+        .job-company {
+            margin-top: 5px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .job-period {
+            font-size: 14px;
+            color: white;
+            font-weight: 100;
+            margin-top: 5px;
+        }
+
+        .job-position {
+            line-height: 25px;
+        }
+
+        .logos {
+            display: flex;
+            margin: auto;
+            justify-content: center;
+            gap: 20px;
+            padding: 50px 0px;
+        }
+
+        /* .logo {
+            width: 30px;
+            height: 30px;
+            overflow: hidden;
+            display: block;
+        } */
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            /* object-fit: cover; */
+        }
+
+        @media (min-width: 640px) {
+            .navbar {
+                width: 80%;
+            }
+
+            .experience-content {
+                flex-direction: row;
+            }
+
+            .job-title {
+                width: 50%;
+            }
+
+
+            .job-description {
+                width: 70%;
+                padding-top: 0px;
+            }
+        }
+
+        @media (min-width: 768px) {
+
+            .project-item,
+            .project-item:nth-child(2),
+            .project-item:nth-child(4) {
+                flex-direction: row;
+            }
+
+            .main-container {
+                width: 80%;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .main-container {
+                width: 50%;
+            }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+
+            .project-info,
+            .img-project-container {
+                width: 100%;
+            }
+
+            .title-container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="language-switcher">
+            <a href="/index.html">ES</a> |
+            <a href="/en/index.html">EN</a>
+        </div>
+        <div class="main-container">
+            <header>
+                <nav>
+                    <ul class="navbar">
+                        <li> <a href="#sobre-mi"> Sobre mí</a></li>
+                        <li> <a href="#proyectos"> Proyectos </a></li>
+                        <li> <a href="#experiencia"> Experiencia </a></li>
+                        <li> <a href="#contacto"> Contacto</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <section class="content" id="sobre-mi">
+                <div>
+                    <div class="title-container">
+                        <div class="img-container">
+                            <img src="./assets/1687957260870.jpeg" alt="Imagen de perfil de Gastón Balatti">
+                        </div>
+                        <h1>Gastón Balatti</h1>
+                    </div>
+                    <div class="description">
+                        <p>
+                            Empecé a investigar sobre desarrollo web mientras estudiaba Comunicación en la universidad.
+                            En
+                            ese momento, entre trabajos prácticos y cursadas, me metía a hacer cursos de HTML y CSS, sin
+                            saber
+                            que ese hobby se iba a convertir en mi profesión.
+                        </p>
+                        <br>
+                        <p> Hoy trabajo como desarrollador frontend en <a href="https://www.lanacion.com.ar/"
+                                target="_blank" style="text-decoration: underline;">La Nación</a>, con experiencia en
+                            Svelte, Next.js, y otras
+                            herramientas modernas del ecosistema web. Me apasionan las animaciones y construir
+                            interfaces
+                            limpias, rápidas y
+                            accesibles, y siempre busco mantener mis proyectos simples y bien pensados, tanto en diseño
+                            como
+                            en código.
+                        </p>
+                        <br>
+
+                        <p>Si bien vengo del mundo de las palabras, descubrí que programar también es una forma
+                            de comunicación: ordenar ideas, estructurar información y pensar en el otro —en quien va a
+                            usar
+                            lo que hago. Me gusta colaborar, aprender, y mantenerme en movimiento. Cuando no estoy
+                            codeando,
+                            seguramente estoy investigando alguna nueva tecnología, leyendo sobre diseño o ideando algún
+                            side project.
+                        </p>
+                        <br>
+                        <p>Si querés ver lo que estuve haciendo, te invito a recorrer mi
+                            portfolio. <br> Si querés charlar, podés escribirme.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="proyectos" class="projects">
+                <div>
+                    <div>
+                        <h2>Proyectos</h2>
+                        <p class="subtitle">Estos son algunos de los últimos proyectos en los que trabajé últimamente
+                            tanto
+                            de manera freelance como en La Nacion:</p>
+                    </div>
+                    <div class="project-list">
+                        <ul>
+                            <li class="project-item">
+                                <div class="img-project-container">
+                                    <img src="./assets/projects/scala.png" alt="Fundación Scala" />
+                                </div>
+                                <div class="project-info">
+                                    <div>
+                                        <p class="title-project">Fundación Scala</p>
+                                        <div class="badges">
+                                            <div class="badge">React</div>
+                                            <div class="badge">Framer Motion</div>
+                                        </div>
+                                    </div>
+                                    <p class="project-description">
+                                        Desarrollo de un sitio web enfocado en la experiencia visual, priorizando la
+                                        implementación de animaciones fluidas e interactivas.
+                                    </p>
+                                    <a href="https://www.fundacionscala.com/" target="_blank"
+                                        class="preview">Preview</a>
+                                </div>
+                            </li>
+                            <li class="project-item">
+                                <div class="project-info">
+                                    <div>
+                                        <p class="title-project">Calculadora de Inflación</p>
+                                        <div class="badges">
+                                            <div class="badge">Svelte</div>
+                                            <div class="badge">Sass</div>
+                                        </div>
+                                    </div>
+                                    <p class="project-description">
+                                        Desarrollo de un web component reutilizable para embeber en distintas notas. Se
+                                        le
+                                        ingresa un valor, un rubro y una fecha para calcular la evolución de los
+                                        precios.
+                                    </p>
+                                    <a href="https://www.lanacion.com.ar/economia/calculadora-de-inflacion-argentina-nid26122024/"
+                                        target="_blank" class="preview">Preview</a>
+                                </div>
+                                <div class="img-project-container">
+                                    <img src="./assets/projects/inflacion.png" alt="Calculadora de Inflación" />
+                                </div>
+                            </li>
+                            <li class="project-item">
+                                <div class="img-project-container">
+                                    <img src="./assets/projects/posse.png" alt="Portfolio Salvador Posse" />
+                                </div>
+                                <div class="project-info">
+                                    <div>
+                                        <p class="title-project">Portfolio Salvador Posse</p>
+                                        <div class="badges">
+                                            <div class="badge">Next</div>
+                                            <div class="badge">Tailwind</div>
+                                        </div>
+                                    </div>
+                                    <p class="project-description">
+                                        Desarrollo de un portfolio web elegante, concisco y claro jugando con los libros
+                                        como el menú de navegación.
+                                    </p>
+                                    <a href="https://www.salvadorgonzaloposse.com/" target="_blank"
+                                        class="preview">Preview</a>
+                                </div>
+                            </li>
+                            <li class="project-item">
+                                <div class="project-info">
+                                    <div>
+                                        <p class="title-project">Discurso de Milei</p>
+                                        <div class="badges">
+                                            <div class="badge">Svelte</div>
+                                            <div class="badge">GSAP</div>
+                                        </div>
+                                    </div>
+                                    <p class="project-description">
+                                        Desarrollo de una nota especial que dispara animaciones con el scroll.
+                                    </p>
+                                    <a href="https://www.lanacion.com.ar/economia/calculadora-de-inflacion-argentina-nid26122024/"
+                                        target="_blank" class="preview">Preview</a>
+                                </div>
+                                <div class="img-project-container">
+                                    <img src="./assets/projects/scroll.png" alt="Discurso de Milei" />
+                                </div>
+                            </li>
+                            <li class="project-item">
+                                <div class="img-project-container">
+                                    <img src="./assets/projects/lnen5.png" alt="LN en 5 Minutos" />
+                                </div>
+                                <div class="project-info">
+                                    <div>
+                                        <p class="title-project">LN en 5 Minutos</p>
+                                        <div class="badges">
+                                            <div class="badge">Svelte</div>
+                                            <div class="badge">GSAP</div>
+                                        </div>
+                                    </div>
+                                    <p class="project-description">
+                                        Desarrollo de un producto a medida inspirado en el funcionamiento de
+                                        Tiktok/Flipboard para consumir noticias de manera rápida y concisa.
+                                    </p>
+                                    <a href="https://especialess3.lanacion.com.ar/interactivos/lanacion-en-5-minutos-preview/index.html?v=1745496333350"
+                                        target="_blank" class="preview">Preview</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="experiencia" class="experience">
+                <div>
+                    <h2>Experiencia laboral</h2>
+                    <div class="experience-content">
+                        <div class="job-title">
+                            <p>Desarrollador Frontend</p>
+                            <p class="job-company">La Nacion</p>
+                            <span class="job-period">Julio 2024 - Actualidad</span>
+                        </div>
+                        <div class="job-description">
+                            <p>Transformo ideas de diseño en experiencias web funcionales, trabajando mano a mano con
+                                equipos de diseño, producto y editorial para crear soluciones digitales que realmente
+                                funcionen. <br /> Me gusta optimizar tanto el código como los procesos, siempre buscando
+                                maneras
+                                más eficientes de hacer las cosas y proponiendo ideas que mejoren tanto la experiencia
+                                del
+                                usuario como el workflow del equipo.</p>
+                        </div>
+                    </div>
+                    <div class="experience-content">
+                        <div class="job-title">
+                            <p class="job-position">Freelance</p>
+                            <span class="job-period">Septiembre 2022 - Actualidad</span>
+                        </div>
+                        <div class="job-description">
+                            <p>Desarrollo de aplicaciones web con distintas funcionalidades como autenticación de
+                                usuarios,
+                                sistemas de permisos y gestión de datos. Trabajo directamente con clientes para entender
+                                sus
+                                necesidades técnicas, diseñar arquitecturas escalables y entregar soluciones completas
+                                manejando todo el proceso desde la planificación hasta el deployment. Suelen ser los
+                                proyectos donde más aprendí y aprendo.</p>
+                        </div>
+                    </div>
+                    <div class="experience-content">
+                        <div class="job-title">
+                            <p class="job-position">Responsable de Redes Sociales</p>
+                            <p class="job-company">La Nacion</p>
+                            <span class="job-period">Octubre 2020 - Julio 2024</span>
+                        </div>
+                        <div class="job-description">
+                            <p>Antes de dedicarme al desarrollo, trabajé en redes sociales creando contenido en el que
+                                debía
+                                comunicar ideas complejas de manera clara y concisa, siempre pensando en los tiempos y
+                                la
+                                atención del usuario. Esta experiencia me enseñó a sintetizar información, crear
+                                narrativas
+                                efectivas y adaptar el mensaje según la audiencia, habilidades que hoy aplico para poner
+                                el
+                                foco en el usuario.</p>
+                        </div>
+                    </div>
+                    <!-- Aquí puedes agregar tu experiencia laboral -->
+                </div>
+            </section>
+
+            <section id="contacto" class="contact">
+                <div>
+                    <h2>Contacto</h2>
+                    <p class="subtitle">¿Hablamos? Podés escribirme por cualquiera de estos medios:</p>
+                    <!-- Aquí puedes agregar tu información de contacto -->
+                    <div class="logos">
+                        <a href="https://x.com/Gaston_Balatti" target="_blank" class="logo">
+                            twitter
+                        </a>
+                        <a href="https://wa.me/5491167504050" target="_blank" rel="noopener" class="logo">
+                            whatsapp
+                        </a>
+                        <a href="https://www.linkedin.com/in/gast%C3%B3n-balatti-8b5b441ba/" target="_blank"
+                            class="logo">
+                            linkedin
+                        </a>
+                        <a href="mailto:gas.balatti@gmail.com" class="logo">
+                            mail
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+
+</html>

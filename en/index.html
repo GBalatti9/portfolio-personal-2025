@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+
+    <title>Gaston Balatti</title>
+
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            background: linear-gradient(rgb(30, 30, 30), rgb(1, 8, 1));
+            padding: 20px 0px;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        .main-container {
+            width: 90%;
+            margin: auto;
+        }
+
+        header {
+            position: sticky;
+            top: 20px;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            border-radius: 5px;
+            padding: 10px 0px;
+            margin: auto;
+            font-size: 14px;
+            max-width: 400px;
+            background-color: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .navbar li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            font-family: "Inter", sans-serif;
+        }
+
+        .content {
+            margin-top: 80px;
+        }
+
+        .content h1 {
+            color: white;
+            background-color: transparent;
+            font-family: "Inter", sans-serif;
+            font-size: 40px;
+        }
+
+        .title-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .img-container {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .img-container img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+
+        .language-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .description {
+            padding-top: 20px;
+            font-size: 15px;
+        }
+
+        .description p {
+            line-height: 20px;
+        }
+
+        section {
+            margin-top: 50px;
+            font-family: "Inter", sans-serif;
+        }
+
+        h2,
+        p {
+            color: white;
+        }
+
+        .subtitle {
+            padding-top: 10px;
+            font-size: 14px;
+            line-height: 20px;
+        }
+
+        .project-list {
+            padding-top: 20px;
+        }
+
+        .project-list ul {
+            display: flex;
+            flex-direction: column;
+            gap: 70px;
+        }
+
+        .project-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-direction: column;
+        }
+
+        .project-item:nth-child(2),
+        .project-item:nth-child(4) {
+            flex-direction: column-reverse;
+        }
+
+        .project-info {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .title-project {
+            font-size: 30px;
+            font-weight: 400;
+        }
+
+        .badges {
+            margin-top: 5px;
+            display: flex;
+            font-size: 12px;
+            gap: 10px;
+        }
+
+        .badge {
+            background-color: black;
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+        }
+
+        .img-project-container {
+            width: 50%;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .img-project-container img {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .img-project-container:hover img {
+            transform: scale(1.05);
+        }
+
+        .img-project-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .preview {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            width: fit-content;
+            padding: 5px 10px;
+            font-size: 14px;
+            border-radius: 5px;
+            background: linear-gradient(rgb(10, 10, 10), rgb(0, 0, 0));
+            transition: all 0.1s ease-in-out;
+        }
+
+        .preview:hover {
+            color: white;
+            transform: scale(1.01);
+        }
+
+        .project-description {
+            font-size: 15px;
+        }
+
+        .experience-content {
+            margin-top: 25px;
+            margin-left: 20px;
+            border-left: 1px solid white;
+            display: flex;
+            justify-content: space-between;
+            padding: 0px 0px 0px 30px;
+            flex-direction: column;
+        }
+
+        .contact {
+            padding-bottom: 100px;
+        }
+
+        .job-title {
+            width: 100%;
+            line-height: 20px;
+        }
+
+        .job-description {
+            padding-top: 20px;
+            width: 100%;
+        }
+
+        .job-title {
+            font-weight: 800;
+            font-size: 20px;
+        }
+
+        .job-company {
+            margin-top: 5px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .job-period {
+            font-size: 14px;
+            color: white;
+            font-weight: 100;
+            margin-top: 5px;
+        }
+
+        .job-position {
+            line-height: 25px;
+        }
+
+        .logos {
+            display: flex;
+            margin: auto;
+            justify-content: center;
+            gap: 20px;
+            padding: 50px 0px;
+        }
+
+        /* .logo {
+            width: 30px;
+            height: 30px;
+            overflow: hidden;
+            display: block;
+        } */
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            /* object-fit: cover; */
+        }
+
+        @media (min-width: 640px) {
+            .navbar {
+                width: 80%;
+            }
+
+            .experience-content {
+                flex-direction: row;
+            }
+
+            .job-title {
+                width: 50%;
+            }
+
+
+            .job-description {
+                width: 70%;
+                padding-top: 0px;
+            }
+        }
+
+        @media (min-width: 768px) {
+
+            .project-item,
+            .project-item:nth-child(2),
+            .project-item:nth-child(4) {
+                flex-direction: row;
+            }
+
+            .main-container {
+                width: 80%;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .main-container {
+                width: 50%;
+            }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+
+            .project-info,
+            .img-project-container {
+                width: 100%;
+            }
+
+            .title-container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="language-switcher">
+            <a href="/index.html">ES</a> |
+            <a href="/en/index.html">EN</a>
+        </div>
+        <div class="main-container">
+            <header>
+                <nav>
+                    <ul class="navbar">
+                        <li> <a href="#about-me">About Me</a></li>
+                        <li> <a href="#projects">Projects</a></li>
+                        <li> <a href="#experience">Experience</a></li>
+                        <li> <a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <section class="content" id="about-me">
+                <div>
+                    <div class="title-container">
+                        <div class="img-container">
+                            <img src="../assets/1687957260870.jpeg" alt="Profile picture of Gastón Balatti">
+                        </div>
+                        <h1>Gastón Balatti</h1>
+                    </div>
+                    <div class="description">
+                        <p>
+                            I started exploring web development while studying Communication at university. Back then,
+                            between classes and assignments, I would sneak in HTML and CSS courses, not knowing that
+                            this hobby would turn into my profession.
+                        </p>
+                        <br>
+                        <p>
+                            Today I work as a frontend developer at <a href="https://www.lanacion.com.ar/"
+                                target="_blank" style="text-decoration: underline;">La Nación</a>, with experience in
+                            Svelte, Next.js, and other modern tools from the web ecosystem. I’m passionate about
+                            animations and building clean, fast, and accessible interfaces, always striving to keep my
+                            projects simple and thoughtfully designed—both in terms of UX and code.
+                        </p>
+                        <br>
+                        <p>
+                            Even though I come from the world of words, I discovered that programming is also a form of
+                            communication: organizing ideas, structuring information, and thinking about the other
+                            person—the one who will use what I build. I enjoy collaborating, learning, and staying in
+                            motion. When I’m not coding, I’m probably researching a new technology, reading about
+                            design, or planning a side project.
+                        </p>
+                        <br>
+                        <p>If you want to see what I’ve been working on, feel free to check out my portfolio. <br> And
+                            if you want to chat, feel free to reach out.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects" class="projects">
+                <div>
+                    <div>
+                        <h2>Projects</h2>
+                        <p class="subtitle">Here are some of the most recent projects I’ve worked on, both freelance and
+                            at La Nación:</p>
+                    </div>
+                    <div class="project-list">
+                        <ul>
+                            <li class="project-item">
+                                <div class="img-project-container">
+                                    <img src="../assets/projects/scala.png" alt="Fundación Scala" />
+                                </div>
+                                <div class="project-info">
+                                    <div>
+                                        <p class="title-project">Fundación Scala</p>
+                                        <div class="badges">
+                                            <div class="badge">React</div>
+                                            <div class="badge">Framer Motion</div>
+                                        </div>
+                                    </div>
+                                    <p class="project-description">
+                                        Development of a visually-driven website, prioritizing smooth and interactive
+                                        animations.
+                                    </p>
+                                    <a href="https://www.fundacionscala.com/" target="_blank"
+                                        class="preview">Preview</a>
+                                </div>
+                            </li>
+                            <li class="project-item">
+                                <div class="project-info">
+                                    <div>
+                                        <p class="title-project">Inflation Calculator</p>
+                                        <div class="badges">
+                                            <div class="badge">Svelte</div>
+                                            <div class="badge">Sass</div>
+                                        </div>
+                                    </div>
+                                    <p class="project-description">
+                                        Development of a reusable web component to embed in different articles. It
+                                        calculates price changes over time based on a value, category, and date input.
+                                    </p>
+                                    <a href="https://www.lanacion.com.ar/economia/calculadora-de-inflacion-argentina-nid26122024/"
+                                        target="_blank" class="preview">Preview</a>
+                                </div>
+                                <div class="img-project-container">
+                                    <img src="../assets/projects/inflacion.png" alt="Inflation Calculator" />
+                                </div>
+                            </li>
+                            <li class="project-item">
+                                <div class="img-project-container">
+                                    <img src="../assets/projects/posse.png" alt="Portfolio Salvador Posse" />
+                                </div>
+                                <div class="project-info">
+                                    <div>
+                                        <p class="title-project">Salvador Posse Portfolio</p>
+                                        <div class="badges">
+                                            <div class="badge">Next</div>
+                                            <div class="badge">Tailwind</div>
+                                        </div>
+                                    </div>
+                                    <p class="project-description">
+                                        Development of a sleek, concise portfolio website using books as a playful
+                                        navigation concept.
+                                    </p>
+                                    <a href="https://www.salvadorgonzaloposse.com/" target="_blank"
+                                        class="preview">Preview</a>
+                                </div>
+                            </li>
+                            <li class="project-item">
+                                <div class="project-info">
+                                    <div>
+                                        <p class="title-project">Milei’s Speech</p>
+                                        <div class="badges">
+                                            <div class="badge">Svelte</div>
+                                            <div class="badge">GSAP</div>
+                                        </div>
+                                    </div>
+                                    <p class="project-description">
+                                        Development of a special article that triggers animations on scroll.
+                                    </p>
+                                    <a href="https://www.lanacion.com.ar/economia/calculadora-de-inflacion-argentina-nid26122024/"
+                                        target="_blank" class="preview">Preview</a>
+                                </div>
+                                <div class="img-project-container">
+                                    <img src="../assets/projects/scroll.png" alt="Milei's Speech" />
+                                </div>
+                            </li>
+                            <li class="project-item">
+                                <div class="img-project-container">
+                                    <img src="../assets/projects/lnen5.png" alt="LN in 5 Minutes" />
+                                </div>
+                                <div class="project-info">
+                                    <div>
+                                        <p class="title-project">LN in 5 Minutes</p>
+                                        <div class="badges">
+                                            <div class="badge">Svelte</div>
+                                            <div class="badge">GSAP</div>
+                                        </div>
+                                    </div>
+                                    <p class="project-description">
+                                        Custom product inspired by Tiktok/Flipboard, designed to consume news quickly
+                                        and concisely.
+                                    </p>
+                                    <a href="https://especialess3.lanacion.com.ar/interactivos/lanacion-en-5-minutos-preview/index.html?v=1745496333350"
+                                        target="_blank" class="preview">Preview</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="experience" class="experience">
+                <div>
+                    <h2>Work Experience</h2>
+                    <div class="experience-content">
+                        <div class="job-title">
+                            <p>Frontend Developer</p>
+                            <p class="job-company">La Nación</p>
+                            <span class="job-period">July 2024 - Present</span>
+                        </div>
+                        <div class="job-description">
+                            <p>I turn design ideas into functional web experiences, working closely with design,
+                                product, and editorial teams to create digital solutions that actually work. <br /> I
+                                enjoy optimizing both code and workflows, always looking for more efficient ways of
+                                doing things and suggesting ideas that enhance both user experience and team dynamics.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="experience-content">
+                        <div class="job-title">
+                            <p class="job-position">Freelance</p>
+                            <span class="job-period">September 2022 - Present</span>
+                        </div>
+                        <div class="job-description">
+                            <p>Development of web applications with various features such as user authentication,
+                                permission systems, and data management. I work directly with clients to understand
+                                their technical needs, design scalable architectures, and deliver complete
+                                solutions—handling everything from planning to deployment. These have often been the
+                                projects where I’ve learned the most.</p>
+                        </div>
+                    </div>
+                    <div class="experience-content">
+                        <div class="job-title">
+                            <p class="job-position">Social Media Manager</p>
+                            <p class="job-company">La Nación</p>
+                            <span class="job-period">October 2020 - July 2024</span>
+                        </div>
+                        <div class="job-description">
+                            <p>Before diving into development, I worked in social media creating content that needed to
+                                communicate complex ideas clearly and concisely—always keeping in mind the user’s
+                                attention span and timing. This experience taught me how to synthesize information,
+                                build effective narratives, and tailor messages to the audience—skills I now apply to
+                                create user-focused solutions.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="contact">
+                <div>
+                    <h2>Contact</h2>
+                    <p class="subtitle">Want to talk? You can reach me through any of these channels:</p>
+                    <div class="logos">
+                        <a href="https://x.com/Gaston_Balatti" target="_blank" class="logo">
+                            twitter
+                        </a>
+                        <a href="https://wa.me/5491167504050" target="_blank" rel="noopener" class="logo">
+                            whatsapp
+                        </a>
+                        <a href="https://www.linkedin.com/in/gast%C3%B3n-balatti-8b5b441ba/" target="_blank"
+                            class="logo">
+                            linkedin
+                        </a>
+                        <a href="mailto:gas.balatti@gmail.com" class="logo">
+                            mail
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+
+
+</html>
